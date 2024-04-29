@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="jp" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="./css/output.css">
+    <title>じゃんけんアプリ~リッチVer.~</title>
+
+    <!-- <link rel="stylesheet" href="./css/output.css"> -->
+</head>
+<body class="text-gray-600 bg-gray-50">
+  <div id="wap" class="bg-white mx-auto p-4 md:p-8 md:max-w-screen-md">
+    <header>
+      <p class="text-3xl text-amber-500 font-bold"><a href="../janken_tpl.html">みまもり♡</a></p>
+    </header>
+    <main>
+      
+      <div class="relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg py-16 mt-4 mb-8">
+        <!-- image - start -->
+        <img src="https://images.unsplash.com/photo-1618004652321-13a63e576b80?auto=format&q=75&fit=crop&w=1500" loading="lazy" alt="" class="absolute inset-0 h-full w-full object-cover object-center" />
+        <!-- image - end -->
+  
+        <!-- overlay - start -->
+        <div class="absolute inset-0 bg-amber-500 mix-blend-multiply"></div>
+        <!-- overlay - end -->
+  
+        <!-- text start -->
+        <div class="relative flex flex-col items-center text-white p-4">
+          <p class="mb-4 text-center text-2xl">認知症になる前に財産を守ろう</p>
+          <h1 class="text-center text-4xl font-bold">相続計算シミュレーション</h1>
+        </div>
+        <!-- text end -->
+      </div>
+
+
+      <!-- 相続税計算シミュレーションform start -->
+      <form id="sozokusimyuform">
+
+        <!-- 遺産の総額 start-->
+        <div class="total_assets">
+          <p class="text-2xl font-bold bg-amber-500 text-white p-4"><span class="bg-white text-amber-500 text-lg py-1 px-4 mr-2 align-bottom rounded-full ">STEP1</span>遺産の総額・家族構成を入力</p>
+
+          <!-- 遺産の総額はいくらですか start -->
+          <div id="totalassets_check" class="p-8 8 pb-0">
+            <p class="text-xl font-bold mb-2">遺産の総額はいくらですか？</p>
+            
+            <div id="totalassets_check" class="flex items-end">
+              <input type="text" inputmode="numeric" pattern="\d*" name="totalassets" required class="w-full rounded border-4 border-amber-500 p-3 outline-none ring-amber-500 transition duration-100 focus:ring md:md:max-w-64"/>
+              <span class="whitespace-nowrap ml-2">万円</span>
+            </div>
+            <p class="text-sm mt-2">遺産の総額とは、預貯金や現金、不動産や有価証券、美術品など財産価値があるものの総額から借入金や葬儀費用を引いた総額です。</p>
+          </div>
+          <!-- 遺産の総額はいくらですか end -->
+        </div>  
+        <!-- 遺産の総額 end-->
+
+        <div class="suitei">
+          <!-- <p class="text-2xl font-bold bg-amber-500 text-white p-4"><span class="bg-white text-amber-500 text-lg py-1 px-4 mr-2 align-bottom rounded-full ">STEP2</span>法定相続人の人数を確認します</p> -->
+
+          <!-- 配偶者はいますか start -->
+          <div  class="p-8 pb-0">
+            <p class="text-xl font-bold  mb-2">配偶者はいますか？</p>
+            <div>
+              <label class="ring-gray-200 has-[:checked]:ring-amber-500 has-[:checked]:bg-amber-50 grid grid-cols-[5px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-2 hover:bg-amber-50 cursor-pointer mb-2"><input type="radio" name="spouse" value="いる" required class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] ring-1 ring-gray-950/10 checked:border-amber-500 checked:ring-amber-500" />いる</label>
+            </div>
+            <div>
+              <label class="ring-gray-200 has-[:checked]:ring-amber-500 has-[:checked]:bg-amber-50 grid grid-cols-[5px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-2 hover:bg-amber-50 cursor-pointer mb-2"><input type="radio" name="spouse" value="いない" required class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] ring-1 ring-gray-950/10 checked:border-amber-500 checked:ring-amber-500" />いない</label>
+            </div>
+          </div>
+          <!-- 配偶者はいますか end -->
+
+          <!-- 子供はいますか start -->
+          <div class="p-8 pb-0">
+            <p class="text-xl font-bold mb-2">子供はいますか？</p>
+            <div>
+              <label class="ring-gray-200 has-[:checked]:ring-amber-500 has-[:checked]:bg-amber-50 grid grid-cols-[5px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-2 hover:bg-amber-50 cursor-pointer mb-2"><input type="radio" name="child" value="いる" required class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] ring-1 ring-gray-950/10 checked:border-amber-500 checked:ring-amber-500"/>いる</label>
+            </div>
+            <div>
+              <label class="ring-gray-200 has-[:checked]:ring-amber-500 has-[:checked]:bg-amber-50 grid grid-cols-[5px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-2 hover:bg-amber-50 cursor-pointer mb-2"><input type="radio" name="child" value="いない" required class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] ring-1 ring-gray-950/10 checked:border-amber-500 checked:ring-amber-500" />いない</label>
+            </div>
+            <p class="text-sm mt-2">子供が相続欠格や相続廃除している場合、すでに亡くなっている場合は孫が代襲します。「いる」を選択し代襲する孫の人数を入力してください。</p>
+
+            <!-- 子供は何人いますか start -->
+            <div class="child_check mt-8">
+              <p class="text-xl font-bold mb-2">子供は何人いますか？</p>
+              <div class="flex items-end">
+                <input type="text" inputmode="numeric" pattern="\d*" name="child_n" class="w-full rounded border-2 border-gray-200 px-3 py-2 outline-none ring-amber-500 transition duration-100 focus:ring md:max-w-64" />
+                <span class="whitespace-nowrap ml-2">人</span>
+              </div>
+            </div>
+            <!-- 子供は何人いますか end -->
+            
+          </div>
+          <!-- 子供はいますか end -->
+
+          <!-- 両親はご健在ですか start -->
+          <div class="parents_check p-8 pb-0">
+            <p class="text-xl font-bold mb-2">両親はご健在ですか？</p>
+            <div>
+              <label class="ring-gray-200 has-[:checked]:ring-amber-500 has-[:checked]:bg-amber-50 grid grid-cols-[5px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-2 hover:bg-amber-50 cursor-pointer mb-2"><input type="radio" name="parents" value="いる" class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] ring-1 ring-gray-950/10 checked:border-amber-500 checked:ring-amber-500" />両親が生きている</label>
+            </div>
+            <div>
+              <label class="ring-gray-200 has-[:checked]:ring-amber-500 has-[:checked]:bg-amber-50 grid grid-cols-[5px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-2 hover:bg-amber-50 cursor-pointer mb-2"><input type="radio" name="parents" value="片方" class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] ring-1 ring-gray-950/10 checked:border-amber-500 checked:ring-amber-500" />片方が生きている</label>
+            </div>
+            <div>
+              <label class="ring-gray-200 has-[:checked]:ring-amber-500 has-[:checked]:bg-amber-50 grid grid-cols-[5px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-2 hover:bg-amber-50 cursor-pointer mb-2"><input type="radio" name="parents" value="いない" class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] ring-1 ring-gray-950/10 checked:border-amber-500 checked:ring-amber-500" />両親が亡くなっている</label>
+            </div>
+          </div>
+          <!-- 両親はご健在ですか end -->
+
+          <!-- 兄弟姉妹はいますか start -->
+          <div class="brothers_check p-8 pb-0">
+            <p class="text-xl font-bold mb-2">兄弟姉妹はいますか？</p>
+            <div>
+              <label class="ring-gray-200 has-[:checked]:ring-amber-500 has-[:checked]:bg-amber-50 grid grid-cols-[5px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-2 hover:bg-amber-50 cursor-pointer mb-2"><input type="radio" name="brothers" value="いる" class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] ring-1 ring-gray-950/10 checked:border-amber-500 checked:ring-amber-500" />いる</label>
+            </div>
+            <div>
+              <label class="ring-gray-200 has-[:checked]:ring-amber-500 has-[:checked]:bg-amber-50 grid grid-cols-[5px_1fr_auto] items-center gap-6 rounded-lg p-4 ring-2 hover:bg-amber-50 cursor-pointer mb-2"><input type="radio" name="brothers" value="いない" class="box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] ring-1 ring-gray-950/10 checked:border-amber-500 checked:ring-amber-500" />いない</label>
+            </div>
+            <p class="text-sm mt-2">兄弟姉妹が相続欠格や相続廃除している場合、すでに亡くなっている場合は甥・姪が代襲します。「いる」を選択し代襲する甥・姪の人数を入力してください。</p>
+
+            <!-- 兄弟姉妹は何人いますか start -->
+            <div class="brothers_n_check mt-8">
+              <p class="text-xl font-bold mb-2">兄弟姉妹は何人いますか？</p>
+              <div class="flex items-end">
+                <input type="text" inputmode="numeric" pattern="\d*" name="brothers_n"class="w-full rounded border-2 border-gray-200 px-3 py-2 outline-none ring-amber-500 transition duration-100 focus:ring md:max-w-64"/>
+                <span class="whitespace-nowrap ml-2">人</span>
+              </div>
+            </div>
+            <!-- 兄弟姉妹は何人いますか end -->
+          </div>
+          <!-- 兄弟姉妹はいますか end -->
+
+        </div>
+
+        <button id="sozokuform_btn" class="block text-xl rounded-lg bg-amber-600 py-4 w-2/4 m-auto mt-8 text-center font-bold text-white outline-none ring-amber-300 transition duration-100 hover:bg-amber-700 focus-visible:ring active:bg-amber-800 disabled:bg-slate-100 disabled:text-slate-400" disabled>計算する</button>
+        <!-- <button id="reset_btn">リセット</button> -->
+
+      </form>
+      <!-- 相続税計算シミュレーションform end -->
+
+
+      <!-- result_area start -->
+      <div id="result_area" class="mt-8">
+        <p class="text-2xl font-bold bg-amber-500 text-white p-4"><span class="bg-white text-amber-500 text-lg py-1 px-4 mr-2 align-bottom rounded-full ">STEP2</span>相続シミュレーション結果</p>
+
+        <div id="total_asset" class="bg-amber-50 p-8">
+
+          <div id="inheritance_none">
+            <p class="text-xl font-bold text-center mb-2">法定相続人なし</p>
+            <p>法定相続人がいない場合は、財産は国庫に帰属します。遺言書を書くことで、希望の団体やお世話になった人などへ遺贈することができます。</p>
+            <button id="sozokuform_btn" class="block rounded-lg border-2 border-amber-500 bg-white my-4 py-2 w-2/4 m-auto text-center font-bold text-amber-500 outline-none ring-amber-300 transition duration-100 hover:bg-amber-50 focus-visible:ring active:bg-amber-200">弁護士に相談する</button>
+
+          </div>
+
+
+          <p class="text-xl font-bold">あなたの総資産は <span class="total_asset_dp text-2xl"></span> 万円です</p>
+          <p>基礎控除額は<span class="basic_deduction"></span>万円。<span class="inheritance_tax"></span></p>
+          <p class="inheritance_tax_rate"></p>
+
+
+          <div id="inheritance" class="mt-4">
+            <p class="font-bold mb-2">法定相続人の相続額</p>
+            <table class="w-full bg-white mb-2">
+            </table>
+            <p>正確な相続税が知りたい場合は、税理士への相談がおすすめです。税理士に相談すると相続税を減らせるかもしれません。</p>
+            <button id="sozokuform_btn" class="block rounded-lg border-2 border-amber-500 bg-white mt-4 py-2 w-2/4 m-auto text-center font-bold text-amber-500 outline-none ring-amber-300 transition duration-100 hover:bg-amber-50 focus-visible:ring active:bg-amber-300">相続税を「税理士」に相談する</button>
+            <p class="mt-4">相続の割合を変更したい場合や、相続させたくない人がいる場合は、弁護士に相談しながら遺言書を書きましょう。</p>
+            <button id="sozokuform_btn" class="block rounded-lg border-2 border-amber-500 bg-white my-4 py-2 w-2/4 m-auto text-center font-bold text-amber-500 outline-none ring-amber-300 transition duration-100 hover:bg-amber-50 focus-visible:ring active:bg-amber-200">遺言書を「弁護士」に相談する</button>
+          </div>
+    
+        </div>
+      </div>
+      <!-- result_area end -->
+
+    </main>
+
+
+  <footer class="mx-auto py-8 pb-0">
+    <div class="py-8 pb-0 border-t text-center text-sm text-gray-300">© 2024 - kadai.</div>
+  </footer>
+
+
+  </div>
+<script src="./js/index.js"></script>
+</body>
+</html>

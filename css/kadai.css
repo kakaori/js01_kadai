@@ -1,0 +1,119 @@
+body{
+    line-height: 1.2;
+    font-weight: bold;
+    color: #444;
+    text-align: center;
+}
+
+#wap{
+    height: 100vh;
+    background: #F59E0B;
+    box-sizing: border-box;
+    padding: 12px;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 30px;
+}
+h1 {
+    text-align: left;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+h1 a{
+    text-align: left;
+    color: #F59E0B;
+    padding: 0 0.5rem 0.5rem;
+    font-size: 1.8rem;
+    display: inline-block;
+    text-decoration: none;
+}
+#main_area{
+    position: relative;
+    background: #FFFBEB;
+    border-radius: 18px;
+    height: 100%;
+    align-content: center;
+}
+.sub_ttl{
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+}
+.ttl{
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+.name{
+    background: #F59E0B;
+    color: #fff;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-radius: 100px;
+}
+#start .start_list,
+.ans_li{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+#start .start_list li,
+.ques_text li{
+    cursor: pointer;
+    font-size: 2.5rem;
+    padding: 1em 0;
+    border-radius: 10px;
+    background: #F59E0B;
+    background-image: -webkit-linear-gradient(top, #F59E0B, #D97705);
+    width: 45%;
+    color: #fff;
+}
+#start .start_list li:hover,
+.ques_text li:hover{
+    background: #c14105;
+}
+
+.ques_image li{
+    cursor: pointer;
+    width: 45%;
+}
+
+.ques_image img{
+    width: 100%;
+    max-width: 300px;
+}
+
+.close,
+.finish a{
+    cursor: pointer;
+    background: #F59E0B;
+    color: #fff;
+    font-size: 2rem;
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 10px;
+    background: #F59E0B;
+    background-image: -webkit-linear-gradient(top, #F59E0B, #D97705);
+}
+
+.inyo{
+    font-size: 0.8rem;
+}
+
+.bnr img{
+    width: 70%;
+    max-width: 400px;
+    margin: 3rem;
+}
+.bnr img:hover{
+    opacity: 0.8;
+}
+
+#question_aera,
+#end_area{
+    display: none;
+}
